@@ -13,10 +13,45 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: scene)
+        
+        let mainVC = RockPaperScissorsController()
+        let SecondVC = CubeGameController()
+        
+        let tabBar = TabBarController()
+        
+        let navMain = NavigationController(
+            rootViewController: mainVC
+        )
+        
+        navMain.navigationBar.tintColor = .systemCyan
+        
+        navMain.tabBarItem = UITabBarItem(
+            title: "The oldest game",
+            image: UIImage(systemName: "scissors.circle"),
+            tag: 1
+        )
+        
+        let configuration = UIImage.SymbolConfiguration(
+            pointSize: 19, weight: .medium
+        )
+        navMain.tabBarItem.selectedImage = UIImage(systemName: "scissors.circle.fill", withConfiguration: configuration)
+        
+        let navSecond = NavigationController(
+            rootViewController: SecondVC
+        )
+        navSecond.tabBarItem = UITabBarItem(
+            title: "Cube game",
+            image: UIImage(systemName: "cube"),
+            tag: 1)
+        navSecond.tabBarItem.selectedImage = UIImage(systemName: "cube.fill", withConfiguration: configuration)
+        
+        tabBar.viewControllers = [navMain, navSecond]
+        
+        self.window = window
+                window.makeKeyAndVisible()
+                window.rootViewController = tabBar
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
