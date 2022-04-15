@@ -16,42 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene)
         
-        let mainVC = RockPaperScissorsController()
-        let SecondVC = CubeGameController()
-        
-        let tabBar = TabBarController()
-        
-        let navMain = NavigationController(
-            rootViewController: mainVC
-        )
-        
-        navMain.navigationBar.tintColor = .systemCyan
-        
-        navMain.tabBarItem = UITabBarItem(
-            title: "The oldest game",
-            image: UIImage(systemName: "scissors.circle"),
-            tag: 1
-        )
-        
-        let configuration = UIImage.SymbolConfiguration(
-            pointSize: 19, weight: .medium
-        )
-        navMain.tabBarItem.selectedImage = UIImage(systemName: "scissors.circle.fill", withConfiguration: configuration)
-        
-        let navSecond = NavigationController(
-            rootViewController: SecondVC
-        )
-        navSecond.tabBarItem = UITabBarItem(
-            title: "Cube game",
-            image: UIImage(systemName: "cube"),
-            tag: 1)
-        navSecond.tabBarItem.selectedImage = UIImage(systemName: "cube.fill", withConfiguration: configuration)
-        
-        tabBar.viewControllers = [navMain, navSecond]
-        
         self.window = window
                 window.makeKeyAndVisible()
-                window.rootViewController = tabBar
+                window.rootViewController = TabBarController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

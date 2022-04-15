@@ -9,45 +9,51 @@ import UIKit
 
 class CubeGameController: UIViewController {
     
-    var cubeLabel1: UILabel! = {
-        let label = UILabel(frame: CGRect(x: 154, y: 250, width: 80, height: 80))
+    var cubeLabel1: UILabel = {
+        let label = UILabel()
         label.text = "1️⃣"
         label.isHidden = false
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var cubeLabel2: UILabel! = {
-        let label = UILabel(frame: CGRect(x: 224, y: 250, width: 80, height: 80))
+    var cubeLabel2: UILabel = {
+        let label = UILabel()
         label.text = "2️⃣"
         label.isHidden = false
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var cubeLabel3: UILabel! = {
-        let label = UILabel(frame: CGRect(x: 154, y: 285, width: 80, height: 80))
+    var cubeLabel3: UILabel = {
+        let label = UILabel()
         label.text = "3️⃣"
         label.isHidden = false
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var cubeLabel4: UILabel! = {
-        let label = UILabel(frame: CGRect(x: 224, y: 285, width: 80, height: 80))
+    var cubeLabel4: UILabel = {
+        let label = UILabel()
         label.text = "4️⃣"
         label.isHidden = false
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var cubeLabel5: UILabel! = {
-        let label = UILabel(frame: CGRect(x: 154, y: 320, width: 80, height: 80))
+    var cubeLabel5: UILabel = {
+        let label = UILabel()
         label.text = "5️⃣"
         label.isHidden = false
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var cubeLabel6: UILabel! = {
-        let label = UILabel(frame: CGRect(x: 224, y: 320, width: 80, height: 80))
+    var cubeLabel6: UILabel = {
+        let label = UILabel()
         label.text = "6️⃣"
         label.isHidden = false
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -78,33 +84,67 @@ class CubeGameController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        viewDidLayoutSubviews()
 
         setupView()
+        
+        NSLayoutConstraint.activate([
+            restartButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            startButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 475),
+            startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            restartButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 475),
+            
+            startButton.heightAnchor.constraint(equalToConstant: 36),
+            startButton.widthAnchor.constraint(equalToConstant: 224),
+            
+            restartButton.heightAnchor.constraint(equalToConstant: 36),
+            restartButton.widthAnchor.constraint(equalToConstant: 224),
+            
+            cubeLabel1.topAnchor.constraint(equalTo: view.topAnchor, constant: 250),
+            cubeLabel1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 154),
+            
+            cubeLabel2.topAnchor.constraint(equalTo: view.topAnchor, constant: 250),
+            cubeLabel2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 224),
+            
+            cubeLabel3.topAnchor.constraint(equalTo: view.topAnchor, constant: 285),
+            cubeLabel3.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 154),
+            
+            cubeLabel4.topAnchor.constraint(equalTo: view.topAnchor, constant: 285),
+            cubeLabel4.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 224),
+            
+            cubeLabel5.topAnchor.constraint(equalTo: view.topAnchor, constant: 320),
+            cubeLabel5.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 154),
+            
+            cubeLabel6.topAnchor.constraint(equalTo: view.topAnchor, constant: 320),
+            cubeLabel6.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 224)
+        ])
+    }
+    
+    override func viewDidLayoutSubviews() {
+//        cubeLabel1.frame(forAlignmentRect: CGRect(x: 154, y: 250, width: 80, height: 80))
+//        cubeLabel2.frame(forAlignmentRect: CGRect(x: 224, y: 250, width: 80, height: 80))
+//        cubeLabel3.frame(forAlignmentRect: CGRect(x: 154, y: 285, width: 80, height: 80))
+//        cubeLabel4.frame(forAlignmentRect: CGRect(x: 224, y: 285, width: 80, height: 80))
+//        cubeLabel5.frame(forAlignmentRect: CGRect(x: 154, y: 320, width: 80, height: 80))
+//        cubeLabel6.frame(forAlignmentRect: CGRect(x: 224, y: 320, width: 80, height: 80))
     }
 
 }
 
 private extension CubeGameController {
     func setupView() {
-        view?.addSubview(cubeLabel1)
-        view?.addSubview(cubeLabel2)
-        view?.addSubview(cubeLabel3)
-        view?.addSubview(cubeLabel4)
-        view?.addSubview(cubeLabel5)
-        view?.addSubview(cubeLabel6)
+        view.backgroundColor = .white
+        
+        view.addSubview(cubeLabel1)
+        view.addSubview(cubeLabel2)
+        view.addSubview(cubeLabel3)
+        view.addSubview(cubeLabel4)
+        view.addSubview(cubeLabel5)
+        view.addSubview(cubeLabel6)
         view.addSubview(startButton)
         view.addSubview(restartButton)
-        restartButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        startButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 475).isActive = true
-        startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        restartButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 475).isActive = true
         
-        startButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        startButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
         
-        restartButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        restartButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
     }
     
     func startAction() {

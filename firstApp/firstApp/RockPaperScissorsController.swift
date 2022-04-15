@@ -44,9 +44,11 @@ class RockPaperScissorsController: UIViewController {
     private lazy var rockButton: UIButton = {
         let rockButton = UIButton()
         rockButton.setTitle("👊🏿", for: .normal)
+        rockButton.titleLabel?.font = .systemFont(ofSize: 26, weight: .medium)
+        rockButton.tag = 1
         rockButton.backgroundColor = .systemGray3
         rockButton.addAction(UIAction() { [weak self] _ in
-            self?.rockButtonAction()
+            self?.gameRPS(sender: rockButton)
         }, for: .touchUpInside)
         rockButton.layer.cornerRadius = 20
             rockButton.translatesAutoresizingMaskIntoConstraints = false
@@ -56,9 +58,11 @@ class RockPaperScissorsController: UIViewController {
     private lazy var paperButton: UIButton = {
         let paperButton = UIButton(frame: CGRect(origin: .zero, size: .init(width: 224, height: 55)))
         paperButton.setTitle("🤚🏿", for: .normal)
+        paperButton.titleLabel?.font = .systemFont(ofSize: 26, weight: .medium)
+        paperButton.tag = 2
         paperButton.backgroundColor = .systemGray3
         paperButton.addAction(UIAction() { [weak self] _ in
-            self?.paperButtonAction()
+            self?.gameRPS(sender: paperButton)
         }, for: .touchUpInside)
         paperButton.layer.cornerRadius = 20
         paperButton.translatesAutoresizingMaskIntoConstraints = false
@@ -68,9 +72,11 @@ class RockPaperScissorsController: UIViewController {
     private lazy var scissorsButton: UIButton = {
         let scissorsButton = UIButton(frame: CGRect(origin: .zero, size: .init(width: 224, height: 55)))
         scissorsButton.setTitle("✌🏿", for: .normal)
+        scissorsButton.titleLabel?.font = .systemFont(ofSize: 26, weight: .medium)
+        scissorsButton.tag = 3
         scissorsButton.backgroundColor = .systemGray3
         scissorsButton.addAction(UIAction() { [weak self] _ in
-            self?.scissorsButtonAction()
+            self?.gameRPS(sender: scissorsButton)
         }, for: .touchUpInside)
         scissorsButton.layer.cornerRadius = 20
         scissorsButton.translatesAutoresizingMaskIntoConstraints = false
@@ -118,29 +124,35 @@ class RockPaperScissorsController: UIViewController {
         super.viewDidLayoutSubviews()
         
         rockButton.center = view.center
-        paperButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        scissorsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        restartButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        ResultLabel.center = view.center
         
-        paperButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 475).isActive = true
-        scissorsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 520).isActive = true
-        restartButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 350).isActive = true
+        NSLayoutConstraint.activate([
+        
+        
+        paperButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        scissorsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        restartButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        
+        paperButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 475),
+        scissorsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 520),
+        restartButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 350),
 
         
-        rockButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        rockButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
+        rockButton.heightAnchor.constraint(equalToConstant: 36),
+        rockButton.widthAnchor.constraint(equalToConstant: 224),
         
-        paperButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        paperButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
+        paperButton.heightAnchor.constraint(equalToConstant: 36),
+        paperButton.widthAnchor.constraint(equalToConstant: 224),
         
-        scissorsButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        scissorsButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
+        scissorsButton.heightAnchor.constraint(equalToConstant: 36),
+        scissorsButton.widthAnchor.constraint(equalToConstant: 224),
         
-        restartButton.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        restartButton.widthAnchor.constraint(equalToConstant: 224).isActive = true
+        restartButton.heightAnchor.constraint(equalToConstant: 36),
+        restartButton.widthAnchor.constraint(equalToConstant: 224),
         
-        
-        ResultLabel.center = view.center
+        nameOfGame.topAnchor.constraint(equalTo: view.topAnchor, constant: 190),
+        nameOfGame.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
     
 }
@@ -162,12 +174,11 @@ private extension RockPaperScissorsController {
             drawLabel.text = "Draw off"
         }
     }
+    
 
     func setupView() {
         
         view.addSubview(nameOfGame)
-            nameOfGame.topAnchor.constraint(equalTo: view.topAnchor, constant: 190).isActive = true
-            nameOfGame.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         view.backgroundColor = .white
         
@@ -192,128 +203,96 @@ private extension RockPaperScissorsController {
         navigationItem.rightBarButtonItems = [ UIBarButtonItem(customView: button) ]
     }
     
-    func rockButtonAction() {
+    func gameRPS(sender: UIButton) {
         rockButton.isHidden = true
         paperButton.isHidden = true
         scissorsButton.isHidden = true
         let randomChoice = Int.random(in: 0...2)
         switch randomChoice {
         case 0:
-            if drawSwitch.isOn {
-            if languageSwitch.isOn {
-            ResultLabel.text = "Ньчья, Ваш выбор - Камень, \nпротивник выбрал Камень!"
-            } else {
-            ResultLabel.text = "Draw, you chose Rock, \nopponent chose Rock!"
-            }
-            ResultLabel.numberOfLines = 2
-            view.backgroundColor = .systemGray3
-            } else {
-                rockButtonAction()
-            }
+                switch sender.tag {
+                case 1:
+                    if drawSwitch.isOn {
+                    ResultLabel.text = "Ничья"
+                    } else {
+                        gameRPS(sender: rockButton)
+                    }
+                case 2:
+                    ResultLabel.text = "Поражение"
+                case 3:
+                    ResultLabel.text = "Победа"
+                default:
+                    ResultLabel.text = ""
+                }
         case 1:
-            if languageSwitch.isOn {
-                ResultLabel.text = "Вы победили! Ваш выбор - Камень \nпротивник выбрал Ножницы!"
-            } else {
-                ResultLabel.text = "You win, you chose Rock, \nopponent chose Scissors!"
-            }
-            ResultLabel.numberOfLines = 2
-            view.backgroundColor = .systemGreen
+                switch sender.tag {
+                case 1:
+                    ResultLabel.text = "Победа"
+                case 2:
+                    if drawSwitch.isOn {
+                    ResultLabel.text = "Ничья"
+                    } else {
+                        gameRPS(sender: paperButton)
+                }
+                case 3:
+                    ResultLabel.text = "Поражение"
+                default:
+                    ResultLabel.text = ""
+                }
         case 2:
-            if languageSwitch.isOn {
-                ResultLabel.text = "Вы проиграли! Ваш выбор - Камень \nпротивник выбрал Бумагу!"
-            } else {
-            ResultLabel.text = "You lose, you chose Rock, \nopponent chose Paper!"
+                switch sender.tag {
+                case 1:
+                    ResultLabel.text = "Поражение"
+                case 2:
+                    ResultLabel.text = "Победа"
+                case 3:
+                    if drawSwitch.isOn {
+                    ResultLabel.text = "Ничья"
+                    } else {
+                        gameRPS(sender: scissorsButton)
+                    }
+                default:
+                    ResultLabel.text = ""
+                }
+            default:
+                ResultLabel.text = ""
             }
-            ResultLabel.numberOfLines = 2
-            view.backgroundColor = .systemRed
-        default:
-            ResultLabel.text = ""
-        }
-        ResultLabel.isHidden = false
-        view.addSubview(ResultLabel)
         restartButton.isHidden = false
         view.addSubview(restartButton)
+        
+        printRes()
     }
     
-    func paperButtonAction() {
-        rockButton.isHidden = true
-        paperButton.isHidden = true
-        scissorsButton.isHidden = true
-        let randomChoice = Int.random(in: 0...2)
-        switch randomChoice {
-        case 0:
-            if languageSwitch.isOn {
-                ResultLabel.text = "Вы победили, Ваш выбор - Бумага, \nпротивник выбрал Камень!"
-            } else {
-                ResultLabel.text = "You win, you chose Paper, \nopponent chose Rock!"
-            }
-            ResultLabel.numberOfLines = 2
-            view.backgroundColor = .systemGreen
-        case 1:
-            if languageSwitch.isOn {
-                ResultLabel.text = "Вы проиграли, Ваш выбор - Бумага, \nпротивник выбрал Ножницы!"
-            } else {
-                ResultLabel.text = "You lose, you chose Paper, \nopponent chose Scissors!"
-            }
-            ResultLabel.numberOfLines = 2
+    func printRes() {
+        
+        switch ResultLabel.text {
+        case "Поражение":
             view.backgroundColor = .systemRed
-        case 2:
-            if drawSwitch.isOn {
             if languageSwitch.isOn {
-                ResultLabel.text = "Ньчья, Ваш выбор - Бумага, \nпротивник выбрал Бумагу!"
+                ResultLabel.text = "Вы проиграли"
             } else {
-                ResultLabel.text = "Draw, you chose Paper, \nopponent chose Paper!"
+                ResultLabel.text = "You lose"
             }
-            ResultLabel.numberOfLines = 2
-            view.backgroundColor = .systemGray3
-            } else {
-                paperButtonAction()
-            }
-        default:
-            ResultLabel.text = ""
-        }
-        ResultLabel.isHidden = false
-        view.addSubview(ResultLabel)
-        restartButton.isHidden = false
-        view.addSubview(restartButton)
-    }
-    
-    func scissorsButtonAction() {
-        rockButton.isHidden = true
-        paperButton.isHidden = true
-        scissorsButton.isHidden = true
-        let randomChoice = Int.random(in: 0...2)
-        switch randomChoice {
-        case 0:
-            if languageSwitch.isOn {
-                ResultLabel.text = "Вы проиграли, Ваш выбор - Ножницы, \nпротивник выбрал Камень!"
-            } else {
-                ResultLabel.text = "You lose, you chose Scissors, \nopponent chose Rock!"
-            }
-            ResultLabel.numberOfLines = 2
-            view.backgroundColor = .systemRed
-        case 1:
-            if drawSwitch.isOn {
-            if languageSwitch.isOn {
-                ResultLabel.text = "Ньчья, Ваш выбор - Ножницы, \nпротивник выбрал Ножницы!"
-            } else {
-                ResultLabel.text = "Draw, you chose Scissors, \nopponent chose Scissors!"
-            }
-            ResultLabel.numberOfLines = 2
-            view.backgroundColor = .systemGray3
-            } else {
-                scissorsButtonAction()
-            }
-        case 2:
-            if languageSwitch.isOn {
-                ResultLabel.text = "Вы победили, Ваш выбор - Ножницы, \nпротивник выбрал Бумагу!"
-            } else {
-                ResultLabel.text = "You win, you chose Scissors, \nopponent chose Paper!"
-            }
-            ResultLabel.numberOfLines = 2
+        case "Победа":
             view.backgroundColor = .systemGreen
-        default:
-            ResultLabel.text = ""
+            if languageSwitch.isOn {
+                ResultLabel.text = "Вы выиграли"
+            } else {
+                ResultLabel.text = "You win"
+            }
+        case "Ничья":
+            if drawSwitch.isOn {
+            view.backgroundColor = .systemGray
+            if languageSwitch.isOn {
+                ResultLabel.text = "Ничья"
+            } else {
+                ResultLabel.text = "Draw"
+            }
+            }
+        case .none:
+            break
+        case .some(_):
+            break
         }
         ResultLabel.isHidden = false
         view.addSubview(ResultLabel)
