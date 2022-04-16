@@ -10,11 +10,12 @@
 		843F3CD827F46EBC00D87BF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3CD727F46EBC00D87BF7 /* AppDelegate.swift */; };
 		843F3CDA27F46EBC00D87BF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3CD927F46EBC00D87BF7 /* SceneDelegate.swift */; };
 		843F3CDC27F46EBC00D87BF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3CDB27F46EBC00D87BF7 /* ViewController.swift */; };
+		843F3CDF27F46EBC00D87BF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843F3CDD27F46EBC00D87BF7 /* Main.storyboard */; };
 		843F3CE127F46EBE00D87BF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843F3CE027F46EBE00D87BF7 /* Assets.xcassets */; };
-		843F3D1827F4A27900D87BF7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3D1727F4A27900D87BF7 /* TabBarController.swift */; };
-		843F3D1A27F4A2C000D87BF7 /* RockPaperScissorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3D1927F4A2C000D87BF7 /* RockPaperScissorsController.swift */; };
-		843F3D1C27F4A2D700D87BF7 /* CubeGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3D1B27F4A2D700D87BF7 /* CubeGameController.swift */; };
-		843F3D2427F4BA5700D87BF7 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3D2327F4BA5700D87BF7 /* NavigationController.swift */; };
+		843F3CE427F46EBE00D87BF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843F3CE227F46EBE00D87BF7 /* LaunchScreen.storyboard */; };
+		843F3CEF27F46EBF00D87BF7 /* firstAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3CEE27F46EBF00D87BF7 /* firstAppTests.swift */; };
+		843F3CF927F46EBF00D87BF7 /* firstAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3CF827F46EBF00D87BF7 /* firstAppUITests.swift */; };
+		843F3CFB27F46EBF00D87BF7 /* firstAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3CFA27F46EBF00D87BF7 /* firstAppUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,14 +40,15 @@
 		843F3CD727F46EBC00D87BF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		843F3CD927F46EBC00D87BF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		843F3CDB27F46EBC00D87BF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		843F3CDE27F46EBC00D87BF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		843F3CE027F46EBE00D87BF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		843F3CE327F46EBE00D87BF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		843F3CE527F46EBE00D87BF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		843F3CEA27F46EBF00D87BF7 /* firstAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = firstAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		843F3CEE27F46EBF00D87BF7 /* firstAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstAppTests.swift; sourceTree = "<group>"; };
 		843F3CF427F46EBF00D87BF7 /* firstAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = firstAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		843F3D1727F4A27900D87BF7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		843F3D1927F4A2C000D87BF7 /* RockPaperScissorsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperScissorsController.swift; sourceTree = "<group>"; };
-		843F3D1B27F4A2D700D87BF7 /* CubeGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeGameController.swift; sourceTree = "<group>"; };
-		843F3D2327F4BA5700D87BF7 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		843F3CF827F46EBF00D87BF7 /* firstAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstAppUITests.swift; sourceTree = "<group>"; };
+		843F3CFA27F46EBF00D87BF7 /* firstAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				843F3CD627F46EBC00D87BF7 /* firstApp */,
+				843F3CED27F46EBF00D87BF7 /* firstAppTests */,
+				843F3CF727F46EBF00D87BF7 /* firstAppUITests */,
 				843F3CD527F46EBC00D87BF7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,14 +102,29 @@
 				843F3CD727F46EBC00D87BF7 /* AppDelegate.swift */,
 				843F3CD927F46EBC00D87BF7 /* SceneDelegate.swift */,
 				843F3CDB27F46EBC00D87BF7 /* ViewController.swift */,
-				843F3D1727F4A27900D87BF7 /* TabBarController.swift */,
-				843F3D2327F4BA5700D87BF7 /* NavigationController.swift */,
-				843F3D1927F4A2C000D87BF7 /* RockPaperScissorsController.swift */,
-				843F3D1B27F4A2D700D87BF7 /* CubeGameController.swift */,
+				843F3CDD27F46EBC00D87BF7 /* Main.storyboard */,
 				843F3CE027F46EBE00D87BF7 /* Assets.xcassets */,
+				843F3CE227F46EBE00D87BF7 /* LaunchScreen.storyboard */,
 				843F3CE527F46EBE00D87BF7 /* Info.plist */,
 			);
 			path = firstApp;
+			sourceTree = "<group>";
+		};
+		843F3CED27F46EBF00D87BF7 /* firstAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				843F3CEE27F46EBF00D87BF7 /* firstAppTests.swift */,
+			);
+			path = firstAppTests;
+			sourceTree = "<group>";
+		};
+		843F3CF727F46EBF00D87BF7 /* firstAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				843F3CF827F46EBF00D87BF7 /* firstAppUITests.swift */,
+				843F3CFA27F46EBF00D87BF7 /* firstAppUITestsLaunchTests.swift */,
+			);
+			path = firstAppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,7 +231,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843F3CE427F46EBE00D87BF7 /* LaunchScreen.storyboard in Resources */,
 				843F3CE127F46EBE00D87BF7 /* Assets.xcassets in Resources */,
+				843F3CDF27F46EBC00D87BF7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,12 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				843F3CDC27F46EBC00D87BF7 /* ViewController.swift in Sources */,
-				843F3D2427F4BA5700D87BF7 /* NavigationController.swift in Sources */,
-				843F3D1827F4A27900D87BF7 /* TabBarController.swift in Sources */,
-				843F3D1C27F4A2D700D87BF7 /* CubeGameController.swift in Sources */,
 				843F3CD827F46EBC00D87BF7 /* AppDelegate.swift in Sources */,
 				843F3CDA27F46EBC00D87BF7 /* SceneDelegate.swift in Sources */,
-				843F3D1A27F4A2C000D87BF7 /* RockPaperScissorsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843F3CEF27F46EBF00D87BF7 /* firstAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +276,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843F3CFB27F46EBF00D87BF7 /* firstAppUITestsLaunchTests.swift in Sources */,
+				843F3CF927F46EBF00D87BF7 /* firstAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +295,25 @@
 			targetProxy = 843F3CF527F46EBF00D87BF7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		843F3CDD27F46EBC00D87BF7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				843F3CDE27F46EBC00D87BF7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		843F3CE227F46EBE00D87BF7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				843F3CE327F46EBE00D87BF7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		843F3CFC27F46EBF00D87BF7 /* Debug */ = {
@@ -405,6 +444,7 @@
 				INFOPLIST_FILE = firstApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -432,6 +472,7 @@
 				INFOPLIST_FILE = firstApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
