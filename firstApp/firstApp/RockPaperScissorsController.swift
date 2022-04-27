@@ -27,21 +27,9 @@ class RockPaperScissorsController: UIViewController {
         return label
     }()
     
-    var languageLabel: UILabel! = {
-        let label = UILabel(frame: CGRect(x: 100, y: 150, width: 80, height: 30))
-        label.text = "Ru"
-       // label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+
     
-    var drawLabel: UILabel! = {
-        let label = UILabel(frame: CGRect(x: 100, y: 250, width: 80, height: 30))
-        label.text = "Draw on"
-       // label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private lazy var rockButton: UIButton = {
+    lazy var rockButton: UIButton = {
         let rockButton = UIButton()
         rockButton.setTitle("👊🏿", for: .normal)
         rockButton.titleLabel?.font = .systemFont(ofSize: 26, weight: .medium)
@@ -55,7 +43,7 @@ class RockPaperScissorsController: UIViewController {
         return rockButton
     }()
     
-    private lazy var paperButton: UIButton = {
+    lazy var paperButton: UIButton = {
         let paperButton = UIButton(frame: CGRect(origin: .zero, size: .init(width: 224, height: 55)))
         paperButton.setTitle("🤚🏿", for: .normal)
         paperButton.titleLabel?.font = .systemFont(ofSize: 26, weight: .medium)
@@ -69,7 +57,7 @@ class RockPaperScissorsController: UIViewController {
         return paperButton
     }()
     
-    private lazy var scissorsButton: UIButton = {
+    lazy var scissorsButton: UIButton = {
         let scissorsButton = UIButton(frame: CGRect(origin: .zero, size: .init(width: 224, height: 55)))
         scissorsButton.setTitle("✌🏿", for: .normal)
         scissorsButton.titleLabel?.font = .systemFont(ofSize: 26, weight: .medium)
@@ -83,23 +71,9 @@ class RockPaperScissorsController: UIViewController {
         return scissorsButton
     }()
     
-    private lazy var languageSwitch: UISwitch = {
-        let languageSwitch = UISwitch(frame: CGRect(x: 300, y: 150, width: 0, height: 0))
-        languageSwitch.setOn(true, animated: true)
-        languageSwitch.addTarget(self, action: #selector(actionLanguage(paramTarget:)), for: .valueChanged)
-       // languageSwitch.translatesAutoresizingMaskIntoConstraints = false
-        return languageSwitch
-    }()
+
     
-    private lazy var drawSwitch: UISwitch = {
-        let drawSwitch = UISwitch(frame: CGRect(x: 300, y: 250, width: 0, height: 0))
-        drawSwitch.setOn(true, animated: true)
-        drawSwitch.addTarget(self, action: #selector(actionDraw(paramTarget:)), for: .valueChanged)
-       // drawSwitch.translatesAutoresizingMaskIntoConstraints = false
-        return drawSwitch
-    }()
-    
-    private lazy var restartButton: UIButton = {
+    lazy var restartButton: UIButton = {
         let restartButton = UIButton(frame: CGRect(origin: .zero, size: .init(width: 224, height: 55)))
         restartButton.setTitle("Restart Game", for: .normal)
         restartButton.backgroundColor = .systemCyan
@@ -111,9 +85,9 @@ class RockPaperScissorsController: UIViewController {
         restartButton.isHidden = true
         return restartButton
     }()
-    
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         view.backgroundColor = .white
         setupNavigationBarIfPossible()
@@ -159,36 +133,7 @@ class RockPaperScissorsController: UIViewController {
 
 private extension RockPaperScissorsController {
     
-    @objc func actionLanguage(paramTarget: UISwitch) {
-        if languageSwitch.isOn {
-            languageLabel.text = "Ru"
-        } else {
-            languageLabel.text = "En"
-        }
-    }
-    
-    @objc func actionDraw(paramTarget: UISwitch) {
-        if drawSwitch.isOn {
-            drawLabel.text = "Draw on"
-        } else {
-            drawLabel.text = "Draw off"
-        }
-    }
-    
 
-    func setupView() {
-        
-        view.addSubview(nameOfGame)
-        
-        view.backgroundColor = .white
-        
-        
-        view.addSubview(rockButton)
-        view.addSubview(paperButton)
-        view.addSubview(scissorsButton)
-        view.addSubview(restartButton)
-    }
-    
     func setupNavigationBarIfPossible() {
         navigationController?.navigationBar.prefersLargeTitles = true
         let button = UIButton()
@@ -198,9 +143,27 @@ private extension RockPaperScissorsController {
             for: .normal)
         button.imageView?.tintColor = .black
         button.addAction(UIAction() { [weak self] _ in
-            self?.routeToModalSheet()
+            self?.routeToSettings()
         }, for: .touchUpInside)
         navigationItem.rightBarButtonItems = [ UIBarButtonItem(customView: button) ]
+    }
+    
+    func routeToSettings() {
+        let obSettings = SettingsController()
+        self.navigationController?.pushViewController(obSettings, animated: true)
+    }
+    
+
+    func setupView() {
+        view.addSubview(nameOfGame)
+        
+        view.backgroundColor = .white
+        
+        
+        view.addSubview(rockButton)
+        view.addSubview(paperButton)
+        view.addSubview(scissorsButton)
+        view.addSubview(restartButton)
     }
     
     func gameRPS(sender: UIButton) {
@@ -258,8 +221,6 @@ private extension RockPaperScissorsController {
                 ResultLabel.text = ""
             }
         restartButton.isHidden = false
-        view.addSubview(restartButton)
-        
         printRes()
     }
     
@@ -300,16 +261,6 @@ private extension RockPaperScissorsController {
         view.addSubview(restartButton)
     }
     
-    func routeToModalSheet() {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .white
-        present(vc, animated: true)
-        vc.view.addSubview(languageSwitch)
-        vc.view.addSubview(languageLabel)
-        vc.view.addSubview(drawSwitch)
-        vc.view.addSubview(drawLabel)
-    }
-    
     func actionRestartButton() {
         ResultLabel.isHidden = true
         rockButton.isHidden = false
@@ -318,6 +269,9 @@ private extension RockPaperScissorsController {
         restartButton.isHidden = true
         view.backgroundColor = .white
     }
+    
+
+    
 }
 
 

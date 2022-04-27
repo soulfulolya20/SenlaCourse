@@ -15,6 +15,7 @@
 		843F3D1A27F4A2C000D87BF7 /* RockPaperScissorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3D1927F4A2C000D87BF7 /* RockPaperScissorsController.swift */; };
 		843F3D1C27F4A2D700D87BF7 /* CubeGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3D1B27F4A2D700D87BF7 /* CubeGameController.swift */; };
 		843F3D2427F4BA5700D87BF7 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F3D2327F4BA5700D87BF7 /* NavigationController.swift */; };
+		84B2415628183CEA00B017D4 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2415528183CEA00B017D4 /* SettingsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		843F3D1927F4A2C000D87BF7 /* RockPaperScissorsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockPaperScissorsController.swift; sourceTree = "<group>"; };
 		843F3D1B27F4A2D700D87BF7 /* CubeGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeGameController.swift; sourceTree = "<group>"; };
 		843F3D2327F4BA5700D87BF7 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		84B2415528183CEA00B017D4 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				843F3D2327F4BA5700D87BF7 /* NavigationController.swift */,
 				843F3D1927F4A2C000D87BF7 /* RockPaperScissorsController.swift */,
 				843F3D1B27F4A2D700D87BF7 /* CubeGameController.swift */,
+				84B2415528183CEA00B017D4 /* SettingsController.swift */,
 				843F3CE027F46EBE00D87BF7 /* Assets.xcassets */,
 				843F3CE527F46EBE00D87BF7 /* Info.plist */,
 			);
@@ -237,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B2415628183CEA00B017D4 /* SettingsController.swift in Sources */,
 				843F3CDC27F46EBC00D87BF7 /* ViewController.swift in Sources */,
 				843F3D2427F4BA5700D87BF7 /* NavigationController.swift in Sources */,
 				843F3D1827F4A27900D87BF7 /* TabBarController.swift in Sources */,

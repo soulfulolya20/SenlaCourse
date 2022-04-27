@@ -7,53 +7,47 @@
 
 import UIKit
 
-class CubeGameController: UIViewController {
+final class CubeGameController: UIViewController {
     
-    var cubeLabel1: UILabel = {
+   private var cubeLabel1: UILabel = {
         let label = UILabel()
         label.text = "1️⃣"
         label.isHidden = false
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var cubeLabel2: UILabel = {
+   private var cubeLabel2: UILabel = {
         let label = UILabel()
         label.text = "2️⃣"
         label.isHidden = false
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var cubeLabel3: UILabel = {
+   private var cubeLabel3: UILabel = {
         let label = UILabel()
         label.text = "3️⃣"
         label.isHidden = false
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var cubeLabel4: UILabel = {
+   private var cubeLabel4: UILabel = {
         let label = UILabel()
         label.text = "4️⃣"
         label.isHidden = false
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var cubeLabel5: UILabel = {
+   private var cubeLabel5: UILabel = {
         let label = UILabel()
         label.text = "5️⃣"
         label.isHidden = false
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    var cubeLabel6: UILabel = {
+   private var cubeLabel6: UILabel = {
         let label = UILabel()
         label.text = "6️⃣"
         label.isHidden = false
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -65,7 +59,6 @@ class CubeGameController: UIViewController {
             self?.startAction()
         }, for: .touchUpInside)
         startButton.layer.cornerRadius = 20
-       startButton.translatesAutoresizingMaskIntoConstraints = false
         return startButton
     }()
     
@@ -77,7 +70,6 @@ class CubeGameController: UIViewController {
             self?.restartAction()
         }, for: .touchUpInside)
         restartButton.layer.cornerRadius = 20
-        restartButton.translatesAutoresizingMaskIntoConstraints = false
         restartButton.isHidden = true
         return restartButton
     }()
@@ -85,9 +77,33 @@ class CubeGameController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewDidLayoutSubviews()
+        makeConstraints()
 
         setupView()
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
+//        cubeLabel1.frame(forAlignmentRect: CGRect(x: 154, y: 250, width: 80, height: 80))
+//        cubeLabel2.frame(forAlignmentRect: CGRect(x: 224, y: 250, width: 80, height: 80))
+//        cubeLabel3.frame(forAlignmentRect: CGRect(x: 154, y: 285, width: 80, height: 80))
+//        cubeLabel4.frame(forAlignmentRect: CGRect(x: 224, y: 285, width: 80, height: 80))
+//        cubeLabel5.frame(forAlignmentRect: CGRect(x: 154, y: 320, width: 80, height: 80))
+//        cubeLabel6.frame(forAlignmentRect: CGRect(x: 224, y: 320, width: 80, height: 80))
+    }
+
+}
+
+private extension CubeGameController {
+    
+    private func makeConstraints() {
+        cubeLabel1.translatesAutoresizingMaskIntoConstraints = false
+        cubeLabel2.translatesAutoresizingMaskIntoConstraints = false
+        cubeLabel3.translatesAutoresizingMaskIntoConstraints = false
+        cubeLabel4.translatesAutoresizingMaskIntoConstraints = false
+        cubeLabel5.translatesAutoresizingMaskIntoConstraints = false
+        cubeLabel6.translatesAutoresizingMaskIntoConstraints = false
+        startButton.translatesAutoresizingMaskIntoConstraints = false
+        restartButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             restartButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             startButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 475),
@@ -119,19 +135,6 @@ class CubeGameController: UIViewController {
             cubeLabel6.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 224)
         ])
     }
-    
-    override func viewDidLayoutSubviews() {
-//        cubeLabel1.frame(forAlignmentRect: CGRect(x: 154, y: 250, width: 80, height: 80))
-//        cubeLabel2.frame(forAlignmentRect: CGRect(x: 224, y: 250, width: 80, height: 80))
-//        cubeLabel3.frame(forAlignmentRect: CGRect(x: 154, y: 285, width: 80, height: 80))
-//        cubeLabel4.frame(forAlignmentRect: CGRect(x: 224, y: 285, width: 80, height: 80))
-//        cubeLabel5.frame(forAlignmentRect: CGRect(x: 154, y: 320, width: 80, height: 80))
-//        cubeLabel6.frame(forAlignmentRect: CGRect(x: 224, y: 320, width: 80, height: 80))
-    }
-
-}
-
-private extension CubeGameController {
     func setupView() {
         view.backgroundColor = .white
         
